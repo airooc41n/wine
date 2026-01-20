@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasaporte del Vino</title>
+
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Color de la barra del sistema -->
+    <meta name="theme-color" content="#5e0b15">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #5e0b15;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            text-align: center;
+        }
+
+        .app {
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        button {
+            background: #ffffff;
+            color: #5e0b15;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h1>🍷 Pasaporte del Vino</h1>
+        <p>Esta web puede instalarse como app y se abre sin barra del navegador.</p>
+        <button onclick="alert('App PWA funcionando')">Probar acción</button>
+    </div>
+
+    <script>
+        // Registro del Service Worker (obligatorio para PWA)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(() => console.log('Service Worker registrado'))
+                .catch(err => console.error('SW error:', err));
+        }
+    </script>
+</body>
+</html>
